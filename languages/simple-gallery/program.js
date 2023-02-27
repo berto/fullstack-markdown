@@ -5,7 +5,7 @@ const path = require('path');
 const config = fs.readFileSync('config.txt', 'utf-8').split('\n');
 
 // extract the path and image extensions
-const dirPath = config[0];
+const dirPath = path.join(__dirname, config[0]);
 const extensions = config[1].split(',');
 
 // extract the columns to display
@@ -45,7 +45,7 @@ images.forEach(image => {
   html += '<tr>';
   columns.forEach(col => {
     if (col === 'Image') {
-      html += `<td><img src="${image['src']}" width="200"></td>`;
+      html += `<td><img src="${path.relative(__dirname, image['src'])}" width="200"></td>`;
     } else {
       html += `<td>${image[col.toLowerCase()]}</td>`;
     }
