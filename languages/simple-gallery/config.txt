@@ -1,0 +1,3 @@
+path/to/files
+jpeg,jpg,png,gif,pdf
+Image,name
